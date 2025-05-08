@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PURE | Premium Plain & Custom Apparel</title>
+  <style>
+    /* Reset and Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Montserrat', sans-serif;
+    }
+    
+    body {
+      background-color: #f9f9f9;
+      color: #333;
+      line-height: 1.6;
+    }
+    
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    /* Header Styles */
+    header {
+      background-color: #fff;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      position: fixed;
+      width: 100%;
+      z-index: 100;
+    }
+    
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem 2rem;
+    }
+    
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
+    
+    .logo span {
+      color: #4a6de5;
+    }
+    
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
+    
+    .nav-links li a {
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    
+    .nav-links li a:hover {
+      color: #4a6de5;
+    }
+    
+    .cart-icon {
+      font-size: 1.2rem;
+      position: relative;
+    }
+    
+    .cart-count {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background-color: #4a6de5;
+      color: white;
+      border-radius: 50%;
+      width: 18px;
+      height: 18px;
+      font-size: 0.7rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://cdnjs.cloudflare.com/ajax/libs/simple-icons/3.0.1/shopify.svg') center/cover repeat;
+      display: flex;
+      align-items: center;
+      padding-top: 60px;
+    }
+    
+    .hero-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      color: white;
+    }
+    
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+    }
+    
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin-bottom: 2rem;
+    }
+    
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+    }
+    
+    .btn {
+      padding: 0.8rem 2rem;
+      border-radius: 30px;
+      font-weight: 600;
+      transition: all 0.3s;
+      cursor: pointer;
+    }
+    
+    .btn-primary {
+      background-color: #4a6de5;
+      color: white;
+      border: none;
+    }
+    
+    .btn-primary:hover {
+      background-color: #3a5cd4;
+    }
+    
+    .btn-secondary {
+      background-color: transparent;
+      color: white;
+      border: 2px solid white;
+    }
+    
+    .btn-secondary:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    /* Categories Section */
+    .categories {
+      max-width: 1200px;
+      margin: 6rem auto;
+      padding: 0 2rem;
+    }
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    
+    .section-title h2 {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+      position: relative;
+      display: inline-block;
+    }
+    
+    .section-title h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60%;
+      height: 3px;
+      background-color: #4a6de5;
+    }
+    
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+    
+    .category-card {
+      background-color: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s;
+    }
+    
+    .category-card:hover {
+      transform: translateY(-10px);
+    }
+    
+    .category-img {
+      height: 250px;
+      background-color: #eee;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    
+    .category-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .category-info {
+      padding: 1.5rem;
+      text-align: center;
+    }
+    
+    .category-info h3 {
+      margin-bottom: 0.5rem;
+      font-size: 1.3rem;
+    }
+    
+    .category-info p {
+      color: #666;
+      margin-bottom: 1rem;
+    }
+    
+    /* Featured Products */
+    .featured-products {
+      background-color: #f0f3f8;
+      padding: 6rem 2rem;
+    }
+    
+    .featured-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+    
+    .product-card {
+      background-color: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s;
+    }
+    
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+    
+    .product-img {
+      height: 280px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .product-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+    
+    .product-card:hover .product-img img {
+      transform: scale(1.05);
+    }
+    
+    .product-badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background-color: #4a6de5;
+      color: white;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+    
+    .product-info {
+      padding: 1.5rem;
+    }
+    
+    .product-info h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .product-price {
+      font-weight: 700;
+      color: #4a6de5;
+      font-size: 1.2rem;
+    }
+    
+    /* Custom Design Section */
+    .custom-design {
+      max-width: 1200px;
+      margin: 6rem auto;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      gap: 4rem;
+      flex-wrap: wrap;
+    }
+    
+    .design-img {
+      flex: 1;
+      min-width: 300px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    .design-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .design-content {
+      flex: 1;
+      min-width: 300px;
+    }
+    
+    .design-content h2 {
+      font-size: 2.2rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+    
+    .design-content h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 80px;
+      height: 3px;
+      background-color: #4a6de5;
+    }
+    
+    .design-content p {
+      margin-bottom: 2rem;
+      color: #555;
+      line-height: 1.8;
+    }
+    
+    .features {
+      margin-bottom: 2rem;
+    }
+    
+    .feature-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+    
+    .feature-icon {
+      width: 40px;
+      height: 40px;
+      background-color: rgba(74, 109, 229, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 1rem;
+      color: #4a6de5;
+      font-size: 1.2rem;
+    }
+    
+    /* Payment Integration Section */
+  .payment-integration {
+    background-color: #f5f8ff;
+    padding: 6rem 2rem;
+  }
+  
+  .payment-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .payment-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 3rem;
+    margin-top: 3rem;
+  }
+  
+  .payment-info {
+    flex: 1;
+    min-width: 320px;
+  }
+  
+  .payment-info h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: #333;
+  }
+  
+  .payment-info p {
+    margin-bottom: 2rem;
+    color: #555;
+    line-height: 1.6;
+  }
+  
+  .payment-features {
+    list-style: none;
+  }
+  
+  .payment-features li {
+    display: flex;
+    margin-bottom: 1.5rem;
+  }
+  
+  .payment-features .feature-icon {
+    background-color: rgba(74, 109, 229, 0.1);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1.2rem;
+    font-size: 1.5rem;
+  }
+  
+  .payment-features .feature-text h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.3rem;
+    color: #333;
+  }
+  
+  .payment-features .feature-text p {
+    margin-bottom: 0;
+    font-size: 0.95rem;
+  }
+  
+  .payment-image {
+    flex: 1;
+    min-width: 320px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .payment-illustration {
+    width: 80%;
+    max-width: 400px;
+    filter: drop-shadow(0 10px 15px rgba(74, 109, 229, 0.2));
+    margin-bottom: 2rem;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+  }
+  
+  .payment-logos {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1rem;
+  }
+  
+  .payment-logo {
+    font-size: 2rem;
+    background-color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  }
+  
+  @media (max-width: 768px) {
+    .payment-content {
+      flex-direction: column;
+      gap: 2rem;
+    }
+    
+    .payment-image {
+      order: -1;
+    }
+  }
+  
+  /* Testimonials */
+    .testimonials {
+      background-color: #f0f3f8;
+      padding: 6rem 2rem;
+    }
+    
+    .testimonials-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    
+    .testimonial-card {
+      background-color: white;
+      border-radius: 10px;
+      padding: 2rem;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      position: relative;
+    }
+    
+    .quote-icon {
+      font-size: 4rem;
+      color: rgba(74, 109, 229, 0.1);
+      position: absolute;
+      top: 1rem;
+      right: 1.5rem;
+    }
+    
+    .testimonial-text {
+      margin-bottom: 1.5rem;
+      font-style: italic;
+      color: #555;
+      line-height: 1.8;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+    }
+    
+    .author-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-right: 1rem;
+      background-color: #eee;
+    }
+    
+    .author-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .author-info h4 {
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+    }
+    
+    .author-info p {
+      color: #777;
+      font-size: 0.9rem;
+    }
+    
+    /* Newsletter */
+    .newsletter {
+      max-width: 1200px;
+      margin: 6rem auto;
+      padding: 3rem 2rem;
+      background-color: #4a6de5;
+      border-radius: 15px;
+      color: white;
+      text-align: center;
+    }
+    
+    .newsletter h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    
+    .newsletter p {
+      margin-bottom: 2rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .newsletter-form {
+      display: flex;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    
+    .newsletter-form input {
+      flex: 1;
+      padding: 1rem;
+      border: none;
+      border-radius: 30px 0 0 30px;
+      outline: none;
+      font-size: 1rem;
+    }
+    
+    .newsletter-form button {
+      background-color: #333;
+      color: white;
+      border: none;
+      padding: 0 1.5rem;
+      border-radius: 0 30px 30px 0;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background-color 0.3s;
+    }
+    
+    .newsletter-form button:hover {
+      background-color: #222;
+    }
+    
+    /* Footer */
+    footer {
+      background-color: #222;
+      color: #aaa;
+      padding: 4rem 2rem 2rem;
+    }
+    
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+    
+    .footer-column h3 {
+      color: white;
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+    
+    .footer-column h3::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 40px;
+      height: 2px;
+      background-color: #4a6de5;
+    }
+    
+    .footer-column p {
+      margin-bottom: 1rem;
+      line-height: 1.8;
+    }
+    
+    .footer-links {
+      list-style: none;
+    }
+    
+    .footer-links li {
+      margin-bottom: 0.8rem;
+    }
+    
+    .footer-links li a {
+      transition: color 0.3s;
+    }
+    
+    .footer-links li a:hover {
+      color: white;
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    
+    .social-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: #333;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.3s;
+    }
+    
+    .social-icon:hover {
+      background-color: #4a6de5;
+    }
+    
+    .contact-info div {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+    
+    .contact-icon {
+      margin-right: 0.8rem;
+    }
+    
+    .copyright {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid #444;
+      font-size: 0.9rem;
+    }
+    
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .custom-design {
+        flex-direction: column;
+        gap: 2rem;
+      }
+      
+      .cta-buttons {
+        flex-direction: column;
+      }
+      
+      .btn {
+        width: 100%;
+        text-align: center;
+      }
+      
+      .newsletter-form {
+        flex-direction: column;
+      }
+      
+      .newsletter-form input {
+        border-radius: 30px;
+        margin-bottom: 1rem;
+      }
+      
+      .newsletter-form button {
+        border-radius: 30px;
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <a href="#">PURE<span>.</span></a>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Shop</a></li>
+        <li><a href="#">Custom Design</a></li>
+        <li><a href="#">Payhip Store</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+      <div class="cart-icon">
+        <a href="#">🛒</a>
+        <span class="cart-count">0</span>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Premium Plain & Custom Apparel</h1>
+      <p>High-quality plain t-shirts and hoodies with options for custom printing. Express yourself with our comfortable, durable, and stylish collection.</p>
+      <div class="cta-buttons">
+        <a href="#" class="btn btn-primary">Shop Collection</a>
+        <a href="#" class="btn btn-secondary">Design Your Own</a>
+        <a href="#" class="btn btn-secondary">Visit Payhip Store</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Categories Section -->
+  <section class="categories">
+    <div class="section-title">
+      <h2>Our Collections</h2>
+      <p>Explore our high-quality apparel categories</p>
+    </div>
+    <div class="category-grid">
+      <div class="category-card">
+        <div class="category-img">
+          <img src="https://cdnjs.cloudflare.com/ajax/libs/browser-logos/73.0.0/archive/edge-12-18/edge-12-18_256x256.png" alt="Plain T-shirts" style="object-fit: cover; filter: hue-rotate(220deg) saturate(0.8);">
+        </div>
+        <div class="category-info">
+          <h3>Plain T-shirts</h3>
+          <p>Premium quality plain tees in various colors</p>
+          <a href="#" class="btn btn-primary">Shop Now</a>
+        </div>
+      </div>
+      <div class="category-card">
+        <div class="category-img">
+          <img src="https://cdnjs.cloudflare.com/ajax/libs/simple-icons/3.0.1/hoodie.svg" alt="Plain Hoodies" style="padding: 20px; background-color: #eaeaea;">
+        </div>
+        <div class="category-info">
+          <h3>Plain Hoodies</h3>
+          <p>Comfortable hoodies for everyday wear</p>
+          <a href="#" class="btn btn-primary">Shop Now</a>
+        </div>
+      </div>
+      <div class="category-card">
+        <div class="category-img">
+          <img src="https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/4.0.0/image/1x_web/ic_brush.png" alt="Printed T-shirts" style="filter: invert(1) hue-rotate(200deg); background-color: #f2f2f2; padding: 60px;">
+        </div>
+        <div class="category-info">
+          <h3>Printed T-shirts</h3>
+          <p>Trendy designs on high-quality tees</p>
+          <a href="#" class="btn btn-primary">Shop Now</a>
+        </div>
+      </div>
+      <div class="category-card">
+        <div class="category-img">
+          <img src="https://cdnjs.cloudflare.com/ajax/libs/simple-icons/3.0.1/hoodie.svg" alt="Printed Hoodies" style="padding: 20px; background-color: #e5e9f5; filter: hue-rotate(180deg) contrast(1.2);">
+        </div>
+        <div class="category-info">
+          <h3>Printed Hoodies</h3>
+          <p>Stylish printed hoodies for all seasons</p>
+          <a href="#" class="btn btn-primary">Shop Now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Products -->
+  <section class="featured-products">
+    <div class="featured-inner">
+      <div class="section-title">
+        <h2>Featured Products</h2>
+        <p>Our most popular items this season</p>
+      </div>
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="product-img">
+            <img src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/svgs/solid/shirt.svg" alt="Classic White Tee" style="padding: 60px; background-color: #fff; filter: brightness(1.2);">
+            <span class="product-badge">Best Seller</span>
+          </div>
+          <div class="product-info">
+            <h3>Classic White Tee</h3>
+            <p>Premium cotton, relaxed fit</p>
+            <span class="product-price">$24.99</span>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img">
+            <img src="https://cdnjs.cloudflare.com/ajax/libs/simple-icons/3.0.1/hoodie.svg" alt="Urban Black Hoodie" style="padding: 40px; background-color: #222; filter: invert(1) brightness(0.7);">
+          </div>
+          <div class="product-info">
+            <h3>Urban Black Hoodie</h3>
+            <p>Soft fleece interior, modern cut</p>
+            <span class="product-price">$49.99</span>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img">
+            <img src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/svgs/solid/shirt.svg" alt="Minimal Wave Design Tee" style="padding: 60px; background-color: #e8f4ff; filter: hue-rotate(180deg);">
+            <span class="product-badge">New</span>
+          </div>
+          <div class="product-info">
+            <h3>Minimal Wave Design Tee</h3>
+            <p>Custom printed, unisex fit</p>
+            <span class="product-price">$29.99</span>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img">
+            <img src="https://cdnjs.cloudflare.com/ajax/libs/simple-icons/3.0.1/hoodie.svg" alt="Geometric Print Hoodie" style="padding: 40px; background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);">
+          </div>
+          <div class="product-info">
+            <h3>Geometric Print Hoodie</h3>
+            <p>Bold design, premium quality</p>
+            <span class="product-price">$54.99</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Custom Design Section -->
+  <section class="custom-design">
+    <div class="design-img">
+      <img src="https://cdnjs.cloudflare.com/ajax/libs/ionicons/5.5.0/collection/components/icon/svg/logo-designernews.svg" alt="Custom Design Process" style="width: 100%; background: linear-gradient(120deg, #e0f2fe 0%, #bae6fd 100%); padding: 40px;">
+    </div>
+    <div class="design-content">
+      <h2>Create Your Custom Design</h2>
+      <p>Have a unique idea? Our custom printing service allows you to bring your designs to life. Whether it's for your business, team, event, or just for fun, we've got you covered.</p>
+      <div class="features">
+        <div class="feature-item">
+          <div class="feature-icon">✓</div>
+          <p>High-quality digital printing</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">✓</div>
+          <p>Multiple printing techniques available</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">✓</div>
+          <p>Fast turnaround times</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">✓</div>
+          <p>Bulk order discounts</p>
+        </div>
+      </div>
+      <a href="#" class="btn btn-primary">Start Designing</a>
+    </div>
+  </section>
+
+  <!-- Payment Integration Section -->
+  <section class="payment-integration">
+    <div class="payment-inner">
+      <div class="section-title">
+        <h2>Secure Checkout with Payhip</h2>
+        <p>Fast, secure, and hassle-free shopping experience</p>
+      </div>
+      <div class="payment-content">
+        <div class="payment-info">
+          <h3>Integrated with Payhip for Seamless Transactions</h3>
+          <p>We've partnered with Payhip to provide you with a secure and convenient shopping experience. Enjoy these benefits when you shop with us:</p>
+          <ul class="payment-features">
+            <li>
+              <div class="feature-icon">🔒</div>
+              <div class="feature-text">
+                <h4>Secure Payments</h4>
+                <p>All transactions are encrypted and protected using industry-standard security protocols.</p>
+              </div>
+            </li>
+            <li>
+              <div class="feature-icon">💳</div>
+              <div class="feature-text">
+                <h4>Multiple Payment Options</h4>
+                <p>Pay with credit cards, PayPal, Apple Pay, Google Pay, and more.</p>
+              </div>
+            </li>
+            <li>
+              <div class="feature-icon">🎁</div>
+              <div class="feature-text">
+                <h4>Special Discounts</h4>
+                <p>Easily apply coupon codes and receive automatic discounts.</p>
+              </div>
+            </li>
+            <li>
+              <div class="feature-icon">📱</div>
+              <div class="feature-text">
+                <h4>Mobile-Friendly Checkout</h4>
+                <p>Shop conveniently from any device with our responsive checkout.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="payment-image">
+          <img src="https://cdnjs.cloudflare.com/ajax/libs/ionicons/5.5.0/collection/components/icon/svg/card.svg" alt="Secure Payment" class="payment-illustration">
+          <div class="payment-logos">
+            <span class="payment-logo">💳</span>
+            <span class="payment-logo">💸</span>
+            <span class="payment-logo">📱</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials">
+    <div class="testimonials-inner">
+      <div class="section-title">
+        <h2>What Our Customers Say</h2>
+        <p>Real feedback from satisfied customers</p>
+      </div>
+      <div class="testimonial-grid">
+        <div class="testimonial-card">
+          <div class="quote-icon">"</div>
+          <p class="testimonial-text">The quality of these t-shirts is absolutely amazing. The fabric feels premium and the print hasn't faded even after multiple washes. Will definitely order again!</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">
+              <img src="https://cdnjs.cloudflare.com/ajax/libs/ionicons/5.5.0/collection/components/icon/svg/person-circle.svg" alt="Customer Avatar">
+            </div>
+            <div class="author-info">
+              <h4>Sarah J.</h4>
+              <p>Verified Customer</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="quote-icon">"</div>
+          <p class="testimonial-text">I ordered custom printed hoodies for our company retreat and they turned out perfect! The customer service was exceptional and they delivered earlier than expected.</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">
+              <img src="/api/placeholder/100/100" alt="Customer Avatar">
+            </div>
+            <div class="author-info">
+              <h4>Michael T.</h4>
+              <p>Business Customer</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="quote-icon">"</div>
+          <p class="testimonial-text">The design team helped me refine my ideas and the final print exceeded my expectations. The hoodie itself is so comfortable that I wear it almost daily!</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">
+              <img src="/api/placeholder/100/100" alt="Customer Avatar">
+            </div>
+            <div class="author-info">
+              <h4>Emma L.</h4>
+              <p>Verified Customer</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <section class="newsletter">
+    <h2>Join Our Community</h2>
+    <p>Subscribe to our newsletter for exclusive offers, new arrivals, and design inspiration. Get 10% off your first order!</p>
+    <form class="newsletter-form">
+      <input type="email" placeholder="Your email address" required>
+      <button type="submit">Subscribe</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-column">
+        <h3>PURE.</h3>
+        <p>Premium quality plain and custom printed apparel. We believe in sustainability, quality, and personal expression through fashion.</p>
+        <div class="social-links">
+          <a href="#" class="social-icon">f</a>
+          <a href="#" class="social-icon">t</a>
+          <a href="#" class="social-icon">in</a>
+          <a href="#" class="social-icon">ig</a>
+        </div>
+      </div>
+      <div class="footer-column">
+        <h3>Shop</h3>
+        <ul class="footer-links">
+          <li><a href="#">Plain T-shirts</a></li>
+          <li><a href="#">Plain Hoodies</a></li>
+          <li><a href="#">Printed T-shirts</a></li>
+          <li><a href="#">Printed Hoodies</a></li>
+          <li><a href="#">Custom Design</a></li>
+          <li><a href="#">My Payhip Store</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Help</h3>
+        <ul class="footer-links">
+          <li><a href="#">FAQs</a></li>
+          <li><a href="#">Shipping Info</a></li>
+          <li><a href="#">Returns & Exchanges</a></li>
+          <li><a href="#">Size Guide</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Contact</h3>
+        <div class="contact-info">
+          <div>
+            <span class="contact-icon">📍</span>
+            <p>123 Fashion St, Design District</p>
+          </div>
+          <div>
+            <span class="contact-icon">📱</span>
+            <p>+1 (555) 123-4567</p>
+          </div>
+          <div>
+            <span class="contact-icon">✉️</span>
+            <p>info@pureapparel.com</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>&copy; 2025 PURE Apparel. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
